@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".profile">
+    <!--toolbar-->
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/coloractionbar"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <ImageButton
+    android:id="@+id/img_back"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="13dp"
+    android:src="@drawable/back"
+    android:background="@android:color/transparent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="5dp"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/save_profil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_margin="15dp"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <!--content-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginStart="18dp"
+                android:background="@drawable/person" />
+            <EditText
+                android:id="@+id/et_nama_r"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@android:color/black"
+                android:hint="Nama"
+                android:inputType="textPersonName"
+                android:background="@drawable/edit_text_custom"
+                android:textColorHint="@android:color/black" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginStart="18dp"
+                android:background="@drawable/phone" />
+            <EditText
+                android:id="@+id/et_no_r"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@android:color/black"
+                android:hint="Nomor HP"
+                android:inputType="number"
+                android:background="@drawable/edit_text_custom"
+                android:textColorHint="@android:color/black" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginStart="18dp"
+                android:background="@drawable/email" />
+            <EditText
+                android:id="@+id/et_email_r"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@android:color/black"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:background="@drawable/edit_text_custom"
+                android:textColorHint="@android:color/black"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Log Out"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_custom"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+</android.support.constraint.ConstraintLayout>

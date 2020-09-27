@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "170971996501",
+    "firebase_url": "https://jadwalronda-93ecf.firebaseio.com",
+    "project_id": "jadwalronda-93ecf",
+    "storage_bucket": "jadwalronda-93ecf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170971996501:android:422bce280f336c0481cfdc",
+        "android_client_info": {
+          "package_name": "informatika.terapan.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "170971996501-voje5v9adf855m7rtl04b3nn4eqpi31g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "informatika.terapan.app",
+            "certificate_hash": "9f82ccb084a57ee2a4022404eed1033b254341a3"
+          }
+        },
+        {
+          "client_id": "170971996501-dkfs7nj5t0r3ae4atsjmbuos9uufs6st.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGr8HVZ3ZDA2j2YjqlZVzBhz26GK88u0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "170971996501-dkfs7nj5t0r3ae4atsjmbuos9uufs6st.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

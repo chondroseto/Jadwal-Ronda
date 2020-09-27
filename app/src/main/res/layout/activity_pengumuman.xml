@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".pengumuman"
+    android:fitsSystemWindows="true"
+    android:id="@+id/page">
+
+    <!--toolbar-->
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/coloractionbar"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/img_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_person"
+            android:src="@drawable/menu"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tv_nama_p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pengumuman"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <!--content-->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:scrollbarStyle="insideOverlay">
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="10dp"
+                    android:textSize="15dp"
+                    android:background="@drawable/p_text_custom"
+                    android:textColor="@android:color/black"
+                    android:text="" />
+            </LinearLayout>
+
+        </ScrollView>
+
+    <!--edit-->
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_custom"
+            android:hint="Input Pengmumuman"
+            android:textColorHint="@android:color/black"
+            android:padding="11dp"
+            android:layout_margin="5dp"
+            android:layout_toLeftOf="@id/btn_save"
+            android:textColor="@android:color/black"
+            android:layout_above="@+id/b_nav"/>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_custom"
+            android:text="Simpan"
+            android:layout_margin="5dp"
+            android:textColor="@android:color/black"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/b_nav"/>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_akun"
+            android:layout_width="225dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_blue_dark"
+            android:orientation="vertical"
+            android:animateLayoutChanges="true"
+            android:layout_below="@+id/toolbar"
+            android:visibility="gone"
+            app:menu="@menu/navigation"/>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/b_nav"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:animateLayoutChanges="true"
+        android:background="@android:color/holo_blue_dark"
+        app:menu="@menu/bnavigation" />
+
+</RelativeLayout>

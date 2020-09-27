@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".Jadwal_ronda"
+    android:id="@+id/page">
+
+    <!--toolbar-->
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/coloractionbar"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/img_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_person"
+            android:src="@drawable/menu"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tv_nama_p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jadwal Ronda"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
+
+    <!--content-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/bottom_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_senin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Senin"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_custom" />
+    <Button
+        android:id="@+id/btn_selasa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selasa"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_custom"/>
+    <Button
+        android:id="@+id/btn_rabu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rabu"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_custom"/>
+    <Button
+        android:id="@+id/btn_kamis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kamis"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_custom"/>
+    <Button
+        android:id="@+id/btn_jumat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jumat"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_custom"/>
+    <Button
+        android:id="@+id/btn_sabtu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sabtu"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_custom"/>
+    <Button
+        android:id="@+id/btn_minggu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Minggu"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_custom"/>
+    </LinearLayout>
+    </ScrollView>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_akun"
+        android:layout_width="225dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_dark"
+        android:orientation="vertical"
+        android:animateLayoutChanges="true"
+        android:layout_below="@+id/toolbar"
+        android:visibility="gone"
+        app:menu="@menu/navigation"/>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/b_nav"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@android:color/holo_blue_dark"
+        android:layout_alignParentBottom="true"
+        android:animateLayoutChanges="true"
+        app:menu="@menu/bnavigation" />
+
+</RelativeLayout>

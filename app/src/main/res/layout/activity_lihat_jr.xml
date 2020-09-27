@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".lihat_jr"
+    android:animateLayoutChanges="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/top_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <!--toolbar-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/coloractionbar"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:animateLayoutChanges="true"/>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:animateLayoutChanges="true">
+    <ImageButton
+        android:id="@+id/img_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="13dp"
+        android:src="@drawable/back"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/title_ljr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="5dp"
+        android:text="Senin"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"/>
+</LinearLayout>
+    <TextView
+        android:id="@+id/st"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Time"
+        android:textSize="15dp"
+        android:layout_margin="19dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+    <!--content-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_parent"
+        android:layout_above="@+id/join">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbarStyle="insideOverlay">
+    <TextView
+        android:id="@+id/title_agt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Anggota"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/isi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/title_agt"
+        android:animateLayoutChanges="true">
+        <!--data anggota-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/p_text_custom"
+            android:layout_margin="10dp">
+        <LinearLayout
+            android:id="@+id/layout_anggota_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            android:animateLayoutChanges="true">
+        <ImageView
+            android:id="@+id/gambar_a1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/person" />
+        <TextView
+            android:id="@+id/anggota_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:text="Nama"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_anggota_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:animateLayoutChanges="true">
+        <ImageView
+            android:id="@+id/gambar_a2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/person" />
+        <TextView
+            android:id="@+id/anggota_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:text="Nama"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_anggota_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:animateLayoutChanges="true">
+        <ImageView
+            android:id="@+id/gambar_a3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/person" />
+        <TextView
+            android:id="@+id/anggota_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:text="Nama"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_anggota_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:animateLayoutChanges="true">
+        <ImageView
+            android:id="@+id/gambar_a4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/person" />
+        <TextView
+            android:id="@+id/anggota_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:text="Nama"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_anggota_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:animateLayoutChanges="true">
+        <ImageView
+            android:id="@+id/gambar_a5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/person" />
+        <TextView
+            android:id="@+id/anggota_5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:text="Nama"/>
+    </LinearLayout>
+        <TextView
+            android:id="@+id/toast_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Belum ada yang anggota"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/time" />
+        <EditText
+            android:id="@+id/jam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/black"
+            android:hint="Jam"
+            android:inputType="time"
+            android:enabled="false"
+            android:background="@drawable/edit_text_custom"
+            android:textColorHint="@android:color/black" />
+    </FrameLayout>
+</LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <!--Button-->
+    <Button
+        android:id="@+id/join"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="IKUT"
+        android:enabled="true"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_custom"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

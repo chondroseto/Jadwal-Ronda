@@ -73,7 +73,7 @@ public class lihat_jr extends AppCompatActivity implements TimePickerDialog.OnTi
         back_btn =  findViewById(R.id.img_back);
         in =  findViewById(R.id.join);
 
-        title.setText(Jadwal_ronda.getDay());
+        title.setText(FragmentJadwalRonda.getDay());
         ui_action();
         data();
 
@@ -133,8 +133,6 @@ public class lihat_jr extends AppCompatActivity implements TimePickerDialog.OnTi
             }
         });
     }
-
-
 
     private void ui_action(){
         if (static_warga.getRole().equals("3")){
@@ -276,9 +274,11 @@ public class lihat_jr extends AppCompatActivity implements TimePickerDialog.OnTi
         if(static_warga.getNama().equals(a1.getText().toString())||static_warga.getNama().equals(a2.getText().toString())||static_warga.getNama().equals(a3.getText().toString())||static_warga.getNama().equals(a4.getText().toString())||static_warga.getNama().equals(a5.getText().toString())){
             in.setText("BATAL IKUT");
             in.setEnabled(true);
+            in.getBackground().setTint(getResources().getColor(R.color.RedButton));
         }else if(!static_warga.getNama().equals(a1.getText().toString())||!static_warga.getNama().equals(a2.getText().toString())||!static_warga.getNama().equals(a3.getText().toString())||!static_warga.getNama().equals(a4.getText().toString())||!static_warga.getNama().equals(a5.getText().toString())){
             in.setText("IKUT");
             in.setEnabled(true);
+            in.getBackground().setTint(getResources().getColor(R.color.bluebutton));
         }
         if(t==0) {
             if (a5.length() > 0 && a4.length() > 0 && a3.length() > 0 && a2.length() > 0 && a1.length() > 0) {

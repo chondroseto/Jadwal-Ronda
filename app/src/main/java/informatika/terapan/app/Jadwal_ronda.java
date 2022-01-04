@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -27,13 +28,10 @@ public class Jadwal_ronda extends AppCompatActivity {
 
     ImageButton pengumuman_btn,menu_btn;
 
-    Button senin,selasa,rabu,kamis,jumat,sabtu,minggu;
-
     NavigationView nav;
 
     BottomNavigationView bnav;
 
-    static String day;
     int nav_temp;
 
     @Override
@@ -47,14 +45,7 @@ public class Jadwal_ronda extends AppCompatActivity {
         nav = findViewById(R.id.nav_akun);
         bnav = findViewById(R.id.b_nav);
 
-        senin =  findViewById(R.id.btn_senin);
-        selasa =  findViewById(R.id.btn_selasa);
-        rabu =  findViewById(R.id.btn_rabu);
-        kamis =  findViewById(R.id.btn_kamis);
-        jumat =  findViewById(R.id.btn_jumat);
-        sabtu =  findViewById(R.id.btn_sabtu);
-        minggu =  findViewById(R.id.btn_minggu);
-
+        Pengumuman();
         nav.getMenu().getItem(0).setTitle(static_warga.getNama());
         ui_role();
 
@@ -72,13 +63,30 @@ public class Jadwal_ronda extends AppCompatActivity {
             }
         });
 
+        //menu nav profile
+        nav.getMenu().getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if (static_warga.getRole().equals("3")){
+                    ((menu)getApplicationContext()).Login();
+                    //Intent intent = new Intent(Jadwal_ronda.this, menu.class);
+                    //startActivity(intent);
+                }else {
+                    Intent intent = new Intent(Jadwal_ronda.this, profile.class);
+                    startActivity(intent);
+                }
+                return false;
+            }
+        });
+
         //menu nav login/log out
         nav.getMenu().getItem(1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (static_warga.getRole().equals("3")){
-                    Intent intent = new Intent(Jadwal_ronda.this, login.class);
-                    startActivity(intent);
+                    ((menu)getApplicationContext()).Login();
+                    //Intent intent = new Intent(Jadwal_ronda.this, menu.class);
+                    //startActivity(intent);
                 }else {
                     db.collection("warga").document(static_warga.getId()).update("id_hp", "").addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -102,108 +110,78 @@ public class Jadwal_ronda extends AppCompatActivity {
             }
         });
 
-        //menu nav profile
-        nav.getMenu().getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if (static_warga.getRole().equals("3")){
-                    Intent intent = new Intent(Jadwal_ronda.this, login.class);
-                    startActivity(intent);
-                }else {
-                    Intent intent = new Intent(Jadwal_ronda.this, profile.class);
-                    startActivity(intent);
-                }
-                return false;
-            }
-        });
-
-        //content
-        senin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                day=senin.getText().toString();
-                Intent intent = new Intent(Jadwal_ronda.this,lihat_jr.class);
-                startActivity(intent);
-
-            }
-        });
-
-        selasa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                day=selasa.getText().toString();
-                Intent intent = new Intent(Jadwal_ronda.this,lihat_jr.class);
-                startActivity(intent);
-            }
-        });
-
-        rabu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                day=rabu.getText().toString();
-                Intent intent = new Intent(Jadwal_ronda.this,lihat_jr.class);
-                startActivity(intent);
-            }
-        });
-
-        kamis.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                day=kamis.getText().toString();
-                Intent intent = new Intent(Jadwal_ronda.this,lihat_jr.class);
-                startActivity(intent);
-            }
-        });
-
-        jumat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                day=jumat.getText().toString();
-                Intent intent = new Intent(Jadwal_ronda.this,lihat_jr.class);
-                startActivity(intent);
-            }
-        });
-
-        sabtu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                day=sabtu.getText().toString();
-                Intent intent = new Intent(Jadwal_ronda.this,lihat_jr.class);
-                startActivity(intent);
-            }
-        });
-
-        minggu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                day=minggu.getText().toString();
-                Intent intent = new Intent(Jadwal_ronda.this,lihat_jr.class);
-                startActivity(intent);
-            }
-        });
-
         bnav.getMenu().getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                Intent intent = new Intent(Jadwal_ronda.this,pengumuman.class);
-                startActivity(intent);
+                Pengumuman();
+                //Intent intent = new Intent(Jadwal_ronda.this,pengumuman.class);
+                //startActivity(intent);
                 return false;
             }
         });
 
+        bnav.getMenu().getItem(1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                JadwalRonda();
+                //Intent intent = new Intent(Jadwal_ronda.this,pengumuman.class);
+                //startActivity(intent);
+                return false;
+            }
+        });
+
+    }
+
+    public void Pengumuman(){
+        nama.setText("Pengumuman");
+        loadFragment(new FragmentPengumuman());
+    }
+
+    public void JadwalRonda(){
+        nama.setText("Jadwal Ronda");
+        loadFragment(new FragmentJadwalRonda());
+    }
+
+    private boolean loadFragment(Fragment fragment){
+        if (fragment!=null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).addToBackStack("null").commit();
+            return true;
+        }
+        return false;
+    }
+
+    public void lihatjr(){
+        Intent intent = new Intent(Jadwal_ronda.this,lihat_jr.class);
+        startActivity(intent);
     }
 
     private void ui_role(){
         if (static_warga.getNama().equals("Guest")){
-            nav.getMenu().getItem(1).setTitle("Login");
             nav.getMenu().getItem(0).setVisible(false);
+            nav.getMenu().getItem(1).setTitle("Login");
         }else{
-            nav.getMenu().getItem(1).setTitle("Log Out");
             nav.getMenu().getItem(0).setVisible(true);
+            nav.getMenu().getItem(1).setTitle("Log Out");
         }
     }
 
-    public static String getDay(){
-        return day;
+    public void LoadPengumumanFailed(){
+        Toast t = Toast.makeText(getApplicationContext(), "load pengumuman failed", Toast.LENGTH_LONG);
+        t.setGravity(Gravity.CENTER | Gravity.CENTER, 0,0);
+        t.show();
     }
+
+    public void SavePengumumanSuccess(){
+        Toast t = Toast.makeText(getApplicationContext(), "save pengumuman success", Toast.LENGTH_LONG);
+        t.setGravity(Gravity.CENTER | Gravity.CENTER, 0,0);
+        t.show();
+    }
+
+    public void SavePengumumanFailed(){
+        Toast t = Toast.makeText(getApplicationContext(), "save pengumuman failed", Toast.LENGTH_LONG);
+        t.setGravity(Gravity.CENTER | Gravity.CENTER, 0,0);
+        t.show();
+    }
+
+
 }

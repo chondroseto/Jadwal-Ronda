@@ -1,38 +1,44 @@
 package informatika.terapan.app;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
+
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
-import android.util.Log;
-import android.view.Gravity;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class login extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link FragmentLogin#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class FragmentLogin extends Fragment {
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
 
     TextView toast_pass, daftar_text;
 
@@ -42,20 +48,51 @@ public class login extends AppCompatActivity {
     Button login;
     Integer a = 0;
 
+    public FragmentLogin() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment FragmentLogin.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static FragmentLogin newInstance(String param1, String param2) {
+        FragmentLogin fragment = new FragmentLogin();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
 
-        daftar_text = findViewById(R.id.register);
-        toast_pass = findViewById(R.id.fail_text_pass);
+        daftar_text = view.findViewById(R.id.register);
+        toast_pass = view.findViewById(R.id.fail_text_pass);
 
-        mail = findViewById(R.id.et_email);
-        pw = findViewById(R.id.et_pass);
+        mail = view.findViewById(R.id.et_email);
+        pw = view.findViewById(R.id.et_pass);
 
-        img_back = findViewById(R.id.img_back);
-        login = findViewById(R.id.btn_login);
+        img_back = view.findViewById(R.id.img_back);
+        login = view.findViewById(R.id.btn_login);
 
         ui_action();
 
@@ -63,11 +100,9 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (static_warga.getNama().equals("Guest")) {
-                    Intent intent = new Intent(login.this, MainActivity.class);
-                    startActivity(intent);
+                    ((menu)getActivity()).Splash();
                 } else {
-                    Intent intent = new Intent(login.this, pengumuman.class);
-                    startActivity(intent);
+                    ((menu)getActivity()).Pengumuman();
                 }
 
             }
@@ -89,11 +124,11 @@ public class login extends AppCompatActivity {
         daftar_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(login.this,register.class);
-                startActivity(intent);
+                ((menu)getActivity()).Register();
             }
         });
 
+        return view;
     }
 
     private void validitas(){
@@ -112,8 +147,7 @@ public class login extends AppCompatActivity {
                                         static_warga.setNo(document.getString("no_hp"));
                                         static_warga.setEmail(document.getString("email"));
                                         static_warga.setRole(document.getString("role"));
-                                        Intent intent = new Intent(login.this,pengumuman.class);
-                                        startActivity(intent);
+                                        ((menu)getActivity()).Pengumuman();
                                         db.collection("warga").document(document.getId()).update("id_hp", Build.ID);
                                         a=1;
                                         toast_pass.setVisibility(View.INVISIBLE);
@@ -135,16 +169,18 @@ public class login extends AppCompatActivity {
                 }).addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                Toast t = Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_LONG);
-                t.setGravity(Gravity.TOP | Gravity.CENTER, 0,0);
-                t.show();
+                ((menu)getActivity()).SuccessLogin();
+                //Toast t = Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_LONG);
+                //t.setGravity(Gravity.TOP | Gravity.CENTER, 0,0);
+                //t.show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast t = Toast.makeText(getApplicationContext(), "login failed", Toast.LENGTH_LONG);
-                t.setGravity(Gravity.TOP | Gravity.CENTER, 0,0);
-                t.show();
+                ((menu)getActivity()).FailedLogin();
+                //Toast t = Toast.makeText(getApplicationContext(), "login failed", Toast.LENGTH_LONG);
+                //t.setGravity(Gravity.TOP | Gravity.CENTER, 0,0);
+                //t.show();
             }
         });
     }
@@ -164,5 +200,4 @@ public class login extends AppCompatActivity {
             }
         });
     }
-
 }

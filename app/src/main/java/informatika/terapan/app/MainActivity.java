@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(a==1) {
-                    Intent intent = new Intent(MainActivity.this, pengumuman.class);
+                    Intent intent = new Intent(MainActivity.this, Jadwal_ronda.class);
                     startActivity(intent);
                 }else{
                     Intent intent = new Intent(MainActivity.this, menu.class);

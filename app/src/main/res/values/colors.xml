@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="coloractionbar">@android:color/holo_blue_dark</color>
     <color name="black">@android:color/black</color>
+    <color name="bluebutton">#FF00BAFF</color>
+    <color name="RedButton">#FFFF2929</color>
 </resources>

@@ -245,6 +245,7 @@
         android:enabled="true"
         android:textColor="@android:color/black"
         android:background="@drawable/button_custom"
+        android:backgroundTint="@color/bluebutton"
         android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

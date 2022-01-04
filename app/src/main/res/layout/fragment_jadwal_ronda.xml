@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".FragmentJadwalRonda">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!--toolbar-->
+
+
+
+    <!--content-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_senin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Senin"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_custom" />
+            <Button
+                android:id="@+id/btn_selasa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selasa"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_custom"/>
+            <Button
+                android:id="@+id/btn_rabu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rabu"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_custom"/>
+            <Button
+                android:id="@+id/btn_kamis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kamis"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_custom"/>
+            <Button
+                android:id="@+id/btn_jumat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jumat"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_custom"/>
+            <Button
+                android:id="@+id/btn_sabtu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sabtu"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_custom"/>
+            <Button
+                android:id="@+id/btn_minggu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Minggu"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_custom"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

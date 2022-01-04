@@ -53,7 +53,7 @@ public class profile extends AppCompatActivity {
                     Intent intent = new Intent(profile.this, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(profile.this, pengumuman.class);
+                    Intent intent = new Intent(profile.this, Jadwal_ronda.class);
                     startActivity(intent);
                 }
 

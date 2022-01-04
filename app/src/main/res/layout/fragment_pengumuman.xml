@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".FragmentPengumuman">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!--content-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbarStyle="insideOverlay">
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_margin="10dp"
+                android:textSize="15dp"
+                android:background="@drawable/p_text_custom"
+                android:textColor="@android:color/black"
+                android:text="" />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+    <!--edit-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_custom"
+        android:hint="Input Pengmumuman"
+        android:textColorHint="@android:color/black"
+        android:padding="11dp"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@id/btn_save"
+        android:layout_weight="1"
+        android:textColor="@android:color/black"/>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_custom"
+        android:text="Simpan"
+        android:layout_margin="5dp"
+        android:textColor="@android:color/black"
+        android:backgroundTint="@color/bluebutton"
+        android:layout_alignParentEnd="true"/>
+    </LinearLayout>
+
+</LinearLayout>

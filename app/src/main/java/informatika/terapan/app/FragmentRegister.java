@@ -1,11 +1,13 @@
 package informatika.terapan.app;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -24,7 +26,21 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.HashMap;
 import java.util.Map;
 
-public class register extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link FragmentRegister#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class FragmentRegister extends Fragment {
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -36,28 +52,58 @@ public class register extends AppCompatActivity {
 
     Integer b=0;
 
+    public FragmentRegister() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment FragmentRegister.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static FragmentRegister newInstance(String param1, String param2) {
+        FragmentRegister fragment = new FragmentRegister();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
 
-        nama =  findViewById(R.id.et_nama_r);
-        hp =  findViewById(R.id.et_no_r);
-        mail =  findViewById(R.id.et_email_r);
-        pw =  findViewById(R.id.et_password_r);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view =inflater.inflate(R.layout.fragment_register, container, false);
 
-        fail =  findViewById(R.id.toast_info);
-        back_btn =  findViewById(R.id.img_back);
-        daftar_btn =  findViewById(R.id.btn_reg);
+        nama =  view.findViewById(R.id.et_nama_r);
+        hp =  view.findViewById(R.id.et_no_r);
+        mail =  view.findViewById(R.id.et_email_r);
+        pw =  view.findViewById(R.id.et_password_r);
+
+        fail =  view.findViewById(R.id.toast_info);
+        back_btn =  view.findViewById(R.id.img_back);
+        daftar_btn =  view.findViewById(R.id.btn_reg);
 
         ui_action();
 
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(register.this,login.class);
-                startActivity(intent);
-
+                ((menu)getActivity()).Login();
             }
         });
 
@@ -75,6 +121,7 @@ public class register extends AppCompatActivity {
             }
         });
 
+        return view;
     }
 
     private void check_data(){
@@ -129,18 +176,12 @@ public class register extends AppCompatActivity {
             db.collection("warga").add(person).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
-                    Toast t = Toast.makeText(getApplicationContext(), "register success", Toast.LENGTH_LONG);
-                    t.setGravity(Gravity.CENTER | Gravity.CENTER, 0,0);
-                    t.show();
-                    Intent intent = new Intent(register.this, login.class);
-                    startActivity(intent);
+                    ((menu)getActivity()).RegisterSuccess();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast t = Toast.makeText(getApplicationContext(), "register failed", Toast.LENGTH_LONG);
-                    t.setGravity(Gravity.CENTER | Gravity.CENTER, 0,0);
-                    t.show();
+                    ((menu)getActivity()).RegisterFailed();
                 }
             });
         }
@@ -175,6 +216,4 @@ public class register extends AppCompatActivity {
             }
         });
     }
-
-
 }

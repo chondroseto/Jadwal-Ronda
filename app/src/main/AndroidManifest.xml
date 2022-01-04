@@ -12,10 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".menu"></activity>
-        <activity android:name=".set_time" />
-        <activity android:name=".pengumuman" />
-        <activity android:name=".register" />
-        <activity android:name=".login" />
         <activity android:name=".profile" />
         <activity android:name=".lihat_jr" />
         <activity android:name=".Jadwal_ronda" />
